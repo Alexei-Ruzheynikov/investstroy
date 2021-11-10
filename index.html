@@ -20,12 +20,15 @@
     <div class="container">
       <div class="top-nav">
         <div class="row justify-content-between align-items-center">
-          <div class="col-md-auto">
+          <div class="col-xl-auto">
             <div class="logo">
               <img src="img/logo.png" alt="Стройинвест" />
             </div>
           </div>
-          <div class="col-md-auto">
+          <div class="col-xl-auto">
+            <button class="top-nav_btn">
+              <a href="#"></a>
+            </button>
             <ul class="top-nav_menu">
               <li><a href="#">Главная</a></li>
               <li><a href="#">О компании</a></li>
@@ -39,8 +42,9 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-4">
           <div class="left-sidebar">
+            <div class="left-sidebar_btn">Категории</div>
             <ul class="left-sidebar_menu">
               <li><a href="#">Земля</a></li>
               <li><a href="#">Жилая недвижимость</a></li>
@@ -76,7 +80,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-lg-8">
           <div class="content">
             <h2>Стройинвест</h2>
             <p>
@@ -148,6 +152,75 @@
         </div>
       </div>
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <div class="copy">
+              <p>Copyright © 2014-2017</p>
+              <a class="footer-policy-link" href="#"
+                >Политика конфиденциальности</a
+              >
+              <small
+                >Но как можно было спокойно спать под этот сотрясающий мебель
+                трезвон? Ну, спал-то он неспокойно, но, видимо, крепко. Однако
+                что делать теперь? Следующий поезд уходит в семь часов; чтобы
+                поспеть на него, он должен отчаянно торопиться, а набор
+                образцов.
+              </small>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <ul class="footer_menu">
+              <li><a href="#">Главная</a></li>
+              <li><a href="#">О компании</a></li>
+              <li><a href="#">Наши услуги</a></li>
+              <li><a href="#">Структура</a></li>
+              <li><a href="#">Инвесторам</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="col-md col-6">
+            <ul class="footer_menu">
+              <li><a href="#">Земля</a></li>
+              <li><a href="#">Жилая недвижимость</a></li>
+              <li><a href="#">Коммерческая недвижимость</a></li>
+              <li><a href="#">Новостройки</a></li>
+              <li><a href="#">Дома/Коттеджи</a></li>
+              <li><a href="#">Строительство</a></li>
+              <li><a href="#">Аренда</a></li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <div class="footer-contacts">
+              <p class="footer-contacts_phone">8 (800) 850-50-50</p>
+              <p class="footer-contacts_address">
+                г. Москва, ул. Морозова, д.12, 3 этаж
+              </p>
+              <p class="footer-contacts_address">
+                г. Москва, ул. Ленина, д. 23, офис 2
+              </p>
+              <p class="footer-contacts_email">invest@mail.ru</p>
+            </div>
+            <div class="footer-social-links">
+              <ul>
+                <li>
+                  <a href="#"><img src="img/socials/1.png" alt="Icons" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="img/socials/2.png" alt="Icons" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="img/socials/3.png" alt="Icons" /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -159,7 +232,33 @@
         arrows: false,
         dots: true,
         slidesToShow: 4,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+
+      $(document).ready(function () {
+        var menuBtn = $(".top-nav_btn");
+        var menu = $(".top-nav_menu");
+
+        var sidebarBtn = $(".left-sidebar_btn");
+        var sidebarmenu = $(".left-sidebar_menu");
+
+        menuBtn.on("click", function (event) {
+          event.preventDefault();
+          menu.toggleClass("top-nav_menu__active");
+        });
+
+        sidebarBtn.on("click", function (event) {
+          event.preventDefault();
+          sidebarmenu.toggleClass("left-sidebar_menu__active");
+        });
       });
     </script>
   </body>
